@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avanti</title>
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="stripe">
+        <p>
+          Ganhe <span class="p-price"> R$10,00 </span> de desconto no seu
+          primeiro pedido.
+        </p>
+        <p>Utilize o cupom DESCONTO10</p>
+      </div>
+      <div class="header-content" onmouseover="closeMenuList()">
+        <div class="header-wrapper-desktop">
+          <img
+            src="public/assets/logo.png"
+            alt="logo-image"
+            class="logo-image"
+          />
+          <div class="on-search-input-container">
+            <div class="search-input-container">
+              <input
+                type="text"
+                placeholder="Digite aqui o que você procura"
+                class="search-input"
+                id="search-message-input"
+                autocomplete="off"
+                oninput="deletedSearch()"
+                onkeydown="onSearchInput(event)"
+              />
+              <span
+                class="material-symbols-outlined header-search-icon"
+                onclick="onSearchInput(event)"
+              >
+                search
+              </span>
+            </div>
+            <div id="search-text-message"></div>
+          </div>
+          <div class="user-material-icons">
+            <span class="material-symbols-outlined client-name-icon">
+              person
+            </span>
+            <p class="client-name">
+              Olá, <br />
+              Nome cliente!
+            </p>
+            <div class="shopping-cart-notification">
+              <p class="cart-notification">2</p>
+              <span class="material-symbols-outlined shopping-cart-icon">
+                shopping_cart
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="header-wrapper-mobile">
+          <span class="material-symbols-outlined menu-icon"> menu </span>
+          <img
+            src="public/assets/logo.png"
+            alt="logo-image"
+            class="logo-image"
+          />
+          <div class="user-material-icons">
+            <div class="shopping-cart-notification">
+              <p class="cart-notification">2</p>
+              <span class="material-symbols-outlined shopping-cart-icon">
+                shopping_cart
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="on-search-input-container mobile">
+          <div class="search-input-container">
+            <input
+              type="text"
+              placeholder="Digite aqui o que você procura"
+              class="search-input"
+              id="search-message-input-mobile"
+              autocomplete="off"
+              oninput="deletedSearch()"
+              onkeydown="onSearchInput(event)"
+            />
+            <span
+              class="material-symbols-outlined header-search-icon"
+              onclick="onSearchInput(event)"
+            >
+              search
+            </span>
+          </div>
+          <div id="search-text-message-mobile"></div>
+        </div>
+      </div>
+      <nav class="navigation">
+        <ul class="list">
+          <li class="all-categories-li" onmouseover="openMenu('item-0')">
+            <span class="material-symbols-outlined categories-icon">
+              menu
+            </span>
+            Todas as categorias
+          </li>
+          <li class="item-li" id="item-1" onmouseover="openMenu('item-1')">
+            Departamento
+          </li>
+          <li class="item-li" id="item-2" onmouseover="openMenu('item-2')">
+            Departamento
+          </li>
+          <li class="item-li" id="item-3" onmouseover="openMenu('item-3')">
+            Departamento
+          </li>
+          <li class="item-li" id="item-4" onmouseover="openMenu('item-4')">
+            Departamento
+          </li>
+          <li class="item-li" id="item-5" onmouseover="openMenu('item-5')">
+            Departamento
+          </li>
+          <li class="item-li" id="item-6" onmouseover="openMenu('item-6')">
+            Departamento
+          </li>
+          <li class="item-li" id="item-7" onmouseover="openMenu('item-7')">
+            Departamento
+          </li>
+          <li class="item-li" id="item-8" onmouseover="openMenu('item-8')">
+            Departamento
+          </li>
+        </ul>
+      </nav>
+      <div
+        class="menu-container"
+        onmouseleave="closeMenuList()"
+        id="menu-container"
+      >
+        <div class="menu-content">
+          <div class="menu-departament-container" id="departament-container">
+            <ul id="menu-departament-content"></ul>
+          </div>
+          <div class="menu-categories-container">
+            <h4 id="categories-title" class="categories-title">Departamento</h4>
+            <div class="menu-categories-wrapper">
+              <ul
+                class="menu-categories-items"
+                id="menu-categories-content-first"
+              ></ul>
+              <ul
+                class="menu-categories-items"
+                id="menu-categories-content-second"
+              ></ul>
+              <ul
+                class="menu-categories-items"
+                id="menu-categories-content-third"
+              ></ul>
+            </div>
+          </div>
+          <div class="menu-image-content">
+            <img
+              src="public/assets/menu-list-image.png"
+              alt="menu-list-image"
+              class="menu-list-image"
+            />
+            <div class="menu-image-info">
+              <p>
+                Confira os Produtos <br />
+                <b>
+                  Que acabaram <br />
+                  De Chegar!</b
+                >
+              </p>
+              <button type="button" class="menu-button-info">Ver todos</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="banner-container">
+        <div class="banner-content">
+          <img
+            src="public/assets/banner-photo.png"
+            alt="banner-image"
+            class="banner-image"
+          />
+          <div class="banner-text">
+            <p class="banner-primary">
+              super <span class="banner-span"> sale </span>
+            </p>
+            <p class="banner-secondary">Itens selecionados com até</p>
+            <p class="banner-third">50% off</p>
+          </div>
+        </div>
+      </section>
+      <section class="carousel-container">
+        <div class="carousel-content">
+          <div class="carousel-guide-content">
+            <p class="carousel-releases-p">Lançamentos</p>
+            <p class="carousel-more-p">Ver mais</p>
+          </div>
+          <div class="swiper">
+            <div class="swiper-wrapper" id="wrapperOne"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev">
+              <span class="material-symbols-outlined icon">
+                arrow_left_alt
+              </span>
+            </div>
+            <div class="swiper-button-next">
+              <span class="material-symbols-outlined icon">
+                arrow_right_alt
+              </span>
+            </div>
+            <div class="swiper-scrollbar"></div>
+          </div>
+        </div>
+      </section>
+      <section class="promotion-container">
+        <div class="promotion-content">
+          <div class="promo-image-content">
+            <img
+              src="public/assets/avanti-promotion.png"
+              alt="promo-avanti"
+              class="promo-image"
+            />
+          </div>
+          <div class="promo-title">
+            <h1 class="promo-h1">Lorem Ipsum</h1>
+            <div class="promo-text-content">
+              <p class="promo-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+                atque iure, corporis beatae, veritatis, nostrum voluptates
+                maxime provident aliquid modi at amet corrupti. Sapiente nulla
+                vero vitae voluptate ipsum quo. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit. Voluptatibus, dolor et
+                reprehenderit hic obcaecati illum? Asperiores rem dolorem sed
+                maxime, veniam perferendis reiciendis aperiam doloremque commodi
+                officiis voluptas tenetur in.
+              </p>
+              <p class="promo-sec-text">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Distinctio inventore cumque amet atque illo deleniti. Fugit
+                debitis ut hic itaque totam cumque suscipit, quod minus ex
+                nobis, doloremque explicabo! Nulla. Lorem, ipsum dolor sit amet
+                consectetur adipisicing elit. Sed repudiandae id iste dolorem
+                quae, libero eaque alias obcaecati animi nesciunt sapiente autem
+                optio perferendis quis impedit consectetur omnis aliquam
+                similique.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="second-banner">
+        <div class="second-banner-container">
+          <div class="second-banner-text-content">
+            <h1 class="second-banner-h1">Lorem Ipsum</h1>
+            <div class="second-banner-p-content">
+              <div class="sec-banner-icon-text">
+                <span class="material-symbols-outlined sec-banner-icon">
+                  location_on
+                </span>
+                <p class="second-banner-p">
+                  Aenean massa. Cum sociis natoque penatibus et magnis dis
+                  parturient montes, nascetur ridiculus mus. Donec quam felis,
+                  ultricies nec, pellentesque eu, pretium quis, sem.
+                </p>
+              </div>
+              <div class="sec-banner-icon-text">
+                <span class="material-symbols-outlined sec-banner-icon">
+                  location_on
+                </span>
+                <p class="second-banner-p">
+                  Aenean massa. Cum sociis natoque penatibus et magnis dis
+                  parturient montes, nascetur ridiculus mus. Donec quam felis,
+                  ultricies nec, pellentesque eu, pretium quis, sem.
+                </p>
+              </div>
+              <div class="sec-banner-icon-text">
+                <span class="material-symbols-outlined sec-banner-icon">
+                  location_on
+                </span>
+                <p class="second-banner-p">
+                  Aenean massa. Cum sociis natoque penatibus et magnis dis
+                  parturient montes, nascetur ridiculus mus. Donec quam felis,
+                  ultricies nec, pellentesque eu, pretium quis, sem.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <img
+              src="public/assets/second-banner.png"
+              alt="second-banner-image"
+              class="second-banner-image"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="promotion-container">
+        <div class="promotion-content">
+          <div class="promo-image-content">
+            <img
+              src="public/assets/avanti-promotion.png"
+              alt="promo-avanti"
+              class="promo-image"
+            />
+          </div>
+          <div class="promo-title">
+            <h1 class="promo-h1">Lorem Ipsum</h1>
+            <div class="promo-text-content">
+              <p class="promo-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+                atque iure, corporis beatae, veritatis, nostrum voluptates
+                maxime provident aliquid modi at amet corrupti. Sapiente nulla
+                vero vitae voluptate ipsum quo. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit. Voluptatibus, dolor et
+                reprehenderit hic obcaecati illum? Asperiores rem dolorem sed
+                maxime, veniam perferendis reiciendis aperiam doloremque commodi
+                officiis voluptas tenetur in.
+              </p>
+              <p class="promo-sec-text">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Distinctio inventore cumque amet atque illo deleniti. Fugit
+                debitis ut hic itaque totam cumque suscipit, quod minus ex
+                nobis, doloremque explicabo! Nulla. Lorem, ipsum dolor sit amet
+                consectetur adipisicing elit. Sed repudiandae id iste dolorem
+                quae, libero eaque alias obcaecati animi nesciunt sapiente autem
+                optio perferendis quis impedit consectetur omnis aliquam
+                similique.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="carousel-container">
+        <div class="carousel-content">
+          <div class="carousel-guide-content">
+            <p class="carousel-releases-p">Lançamentos</p>
+            <p class="carousel-more-p">Ver mais</p>
+          </div>
+
+          <div class="swiper">
+            <div class="swiper-wrapper" id="wrapperTwo"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev">
+              <span class="material-symbols-outlined icon">
+                arrow_left_alt
+              </span>
+            </div>
+            <div class="swiper-button-next">
+              <span class="material-symbols-outlined icon">
+                arrow_right_alt
+              </span>
+            </div>
+            <div class="swiper-scrollbar"></div>
+          </div>
+        </div>
+      </section>
+      <section class="third-banner">
+        <div class="third-banner-container">
+          <div class="third-banner-image-content">
+            <img
+              src="public/assets/third-banner-image.png"
+              alt="third-banner"
+              class="third-banner-image"
+            />
+          </div>
+          <div class="third-banner-text-content">
+            <p class="third-banner-text">
+              Entre em contato conosco e verifique a disponibilidade para a sua
+              região!
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="input-container">
+        <div class="input-content">
+          <div class="input-text-content">
+            <p class="input-text">
+              Cadastre-se na nossa
+              <span class="input-newsletter">newsletter</span>
+            </p>
+          </div>
+          <div class="input-info-wrapper">
+            <div class="input-boxes">
+              <div class="input-primary">
+                <input
+                  type="text"
+                  class="input-info-content-name"
+                  placeholder="Digite seu nome"
+                />
+              </div>
+              <div class="input-secondary">
+                <input
+                  type="email"
+                  class="input-info-content-email"
+                  placeholder="Digite seu e-mail"
+                />
+              </div>
+            </div>
+            <div class="input-checkbox-content">
+              <input type="checkbox" />
+              <p class="input-checkbox-text">
+                Estou de acordo com a
+                <span class="checkbox-span">Politica de Privacidade</span>
+              </p>
+            </div>
+            <button type="button" class="input-button">Cadastrar</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="final-footer">
+      <div class="inicial-footer-container">
+        <div class="footer-content-wrapper">
+          <div class="footer-content">
+            <div class="footer-social-media-content">
+              <div class="footer-logo">
+                <img
+                  src="public/assets/logo.png"
+                  alt="footer-logo"
+                  class="inicial-footer-logo"
+                />
+              </div>
+              <div class="social-media-content">
+                <img
+                  src="public/assets/icons-social-media/instagram-logo.png"
+                  alt="insta-logo"
+                  style="height: 24px"
+                />
+                <img
+                  src="public/assets/icons-social-media/facebook-logo.png"
+                  alt="face-logo"
+                  style="width: 12px"
+                />
+                <img
+                  src="public/assets/icons-social-media/youtube-logo.png"
+                  alt="youtube-logo"
+                  style="height: 30px"
+                />
+                <img
+                  src="public/assets/icons-social-media/tiktok-logo.png"
+                  alt="tiktok-logo"
+                  style="height: 24px"
+                />
+              </div>
+            </div>
+            <div class="footer-list-content">
+              <h4 class="footer-h4">Institucional</h4>
+              <h5 class="footer-h5">Sobre nós</h5>
+              <h5 class="footer-h5">Nossas lojas</h5>
+              <h5 class="footer-h5">Privacidade e Segurança</h5>
+              <h5 class="footer-h5">Termos e condições</h5>
+            </div>
+            <div class="footer-list-content">
+              <h4 class="footer-h4">Central de ajuda</h4>
+              <h5 class="footer-h5">Fale Conosco</h5>
+              <h5 class="footer-h5">Frete e Entrega</h5>
+              <h5 class="footer-h5">Trocas e Devoluções</h5>
+              <h5 class="footer-h5">Formas de Pagamento</h5>
+              <h5 class="footer-h5">FAQ</h5>
+            </div>
+            <div class="footer-list-content">
+              <h4 class="footer-h4">Atendimento</h4>
+              <h5 class="footer-h5">
+                <span class="footer-span">Telefone:</span> (00) 1234-5678
+              </h5>
+              <h5 class="footer-h5">
+                <span class="footer-span">Email:</span> exemplo@exemplo.com.br
+              </h5>
+              <h5 class="footer-h5" style="font-weight: bold">
+                Horário de atendimento:
+              </h5>
+              <div class="footer-p-content">
+                <p class="footer-p">Segunda a Sábado: 07h00 às 23h00</p>
+                <p class="footer-p">Domingos e feriados: 07h00 às 21h00</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Institucional
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  <div>
+                    <h5 class="footer-h5">Sobre nós</h5>
+                    <h5 class="footer-h5">Nossas lojas</h5>
+                    <h5 class="footer-h5">Privacidade e Segurança</h5>
+                    <h5 class="footer-h5">Termos e condições</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Central de ajuda
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  <div>
+                    <h5 class="footer-h5">Fale Conosco</h5>
+                    <h5 class="footer-h5">Frete e Entrega</h5>
+                    <h5 class="footer-h5">Trocas e Devoluções</h5>
+                    <h5 class="footer-h5">Formas de Pagamento</h5>
+                    <h5 class="footer-h5">FAQ</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Atendimento
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  <h5 class="footer-h5">
+                    <span class="footer-span">Telefone:</span> (00) 1234-5678
+                  </h5>
+                  <h5 class="footer-h5">
+                    <span class="footer-span">Email:</span>
+                    exemplo@exemplo.com.br
+                  </h5>
+                  <h5 class="footer-h5" style="font-weight: bold">
+                    Horário de atendimento:
+                  </h5>
+                  <div class="footer-p-content">
+                    <p class="footer-p">Segunda a Sábado: 07h00 às 23h00</p>
+                    <p class="footer-p">Domingos e feriados: 07h00 às 21h00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-payment-content">
+            <img
+              src="public/assets/icons-payments/amex-icon.png"
+              alt="amex-icon"
+              class="amex-icon"
+            />
+            <img
+              src="public/assets/icons-payments/mastercard-icon.png"
+              alt="mastercard-icon"
+              class="mastercard-icon"
+            />
+            <img
+              src="public/assets/icons-payments/visa-icon.png"
+              alt="visa-icon"
+              class="visa-icon"
+            />
+            <img
+              src="public/assets/icons-payments/hipercard-icon.png"
+              alt="hipercard-icon"
+              class="hipercard-icon"
+            />
+            <img
+              src="public/assets/icons-payments/elo-icon.png"
+              alt="elo-icon"
+              class="elo-icon"
+            />
+            <img
+              src="public/assets/icons-payments/diners-icon.png"
+              alt="dinersclub-icon"
+              class="dinersclub-icon"
+            />
+            <img
+              src="public/assets/icons-payments/paypal-icon.png"
+              alt="paypal-icon"
+              class="paypal-icon"
+            />
+            <img
+              src="public/assets/icons-payments/pix-icon.png"
+              alt="pix-icon"
+              class="pix-icon"
+            />
+            <img
+              src="public/assets/icons-payments/code-icon.png"
+              alt="code-icon"
+              class="code-icon"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="final-footer-content">
+        <div class="final-content">
+          <div class="final-footer-content-text">
+            <p class="final-footer-text">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad minim veniam. Quis nostrud exerci
+              tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat. Duis autem vel eum iriure dolor in hendrerit in
+              vulputate velit esse molestie consequat, vel illum dolore eu
+              feugiat nulla facilisis at vero eros et accumsan et iusto odio
+              dignissim qui blandit praesent luptatum zzril delenit augue duis
+              dolore te feugait nulla facilisi.
+            </p>
+          </div>
+          <div class="final-footer-content-image">
+            <img
+              src="public/assets/footer-icons/footer-partners.png"
+              alt="footer-partners"
+              class="footer-partners-icon"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="carousel.js"></script>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
