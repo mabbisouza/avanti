@@ -275,6 +275,10 @@ main {
   gap: 6px;
 }
 
+.categories-icon {
+  padding-right: 12px;
+}
+
 .menu-categories {
   list-style: none;
   font-weight: 400;
@@ -314,8 +318,23 @@ main {
   justify-content: center;
   flex-direction: row;
   list-style: none;
-  gap: 45px;
+  justify-content: space-between;
   width: 100vw;
+  max-width: 1280px;
+  font-size: 1rem;
+
+  @media (max-width: 1120px) {
+    font-size: 0.9rem;
+  }
+
+  
+  @media (max-width: 980px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 860px) {
+    font-size: 0.7rem;
+  }
 }
 
 .search-input {
@@ -405,6 +424,7 @@ main {
 .all-categories-li {
   display: flex;
   font-weight: bold;
+  background-color: red;
 
   &:hover {
     cursor: pointer;
@@ -414,6 +434,9 @@ main {
 
 .item-li {
   font-weight: 550;
+  width: fit-content;
+  display: flex;
+  align-items: center;
   &:hover {
     cursor: pointer;
     color: var(--primary-color-500);
@@ -479,6 +502,10 @@ main {
   @media (max-width: 768px) {
     height: 406px;
   }
+
+  @media (max-width: 768px) {
+    height: 406px;
+  }
 }
 
 .banner-content {
@@ -499,7 +526,16 @@ main {
   justify-content: center;
 
   @media (max-width: 768px) {
-    margin-left: auto;
+    position: absolute;
+    right: 10%;
+    top: 25%;
+    gap: 4px;
+  }
+
+  @media (max-width: 630px) {
+    position: absolute;
+    right: 10%;
+    top: 25%;
     gap: 4px;
   }
 }
@@ -512,6 +548,10 @@ main {
     height: 406px;
     width: 386px;
     position: absolute;
+    left: 0px;
+  }
+
+  @media (max-width: 600px) {
     left: -30%;
   }
 }

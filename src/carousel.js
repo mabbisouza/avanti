@@ -64,11 +64,17 @@ const swiperConfig = {
       slidesPerView: 2,
       spaceBetween: 10
     },
-    480: {
+
+    600: {
       slidesPerView: 3,
       spaceBetween: 0
     },
-    640: {
+
+    800: {
+      slidesPerView: 4,
+      spaceBetween: 0
+    },
+    1200: {
       slidesPerView: 5,
       spaceBetween: 0
     }
