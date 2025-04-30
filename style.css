@@ -378,18 +378,7 @@ main {
   }
 }
 
-#search-text-message {
-  background-color: #ffffff;
-  position: absolute;
-  bottom: -38px;
-  box-shadow: 0px 8px 16px 1px rgba(0, 0, 0, 0.1);
-  padding: 8px;
-  width: 100%;
-  display: none;
-  z-index: 5;
-}
-
-#search-text-message-mobile {
+.search-text-message {
   background-color: #ffffff;
   position: absolute;
   bottom: -38px;

@@ -39,18 +39,13 @@
       </div>
       <div class="header-content" onmouseover="closeMenuList()">
         <div class="header-wrapper-desktop">
-          <img
-            src="/assets/logo.png"
-            alt="logo-image"
-            class="logo-image"
-          />
+          <img src="/assets/logo.png" alt="logo-image" class="logo-image" />
           <div class="on-search-input-container">
             <div class="search-input-container">
               <input
                 type="text"
                 placeholder="Digite aqui o que você procura"
                 class="search-input"
-                id="search-message-input"
                 autocomplete="off"
                 oninput="deletedSearch()"
                 onkeydown="onSearchInput(event)"
@@ -62,7 +57,7 @@
                 search
               </span>
             </div>
-            <div id="search-text-message"></div>
+            <div class="search-text-message"></div>
           </div>
           <div class="user-material-icons">
             <span class="material-symbols-outlined client-name-icon">
@@ -81,12 +76,13 @@
           </div>
         </div>
         <div class="header-wrapper-mobile">
-          <span class="material-symbols-outlined menu-icon" style="user-select: none;"> menu </span>
-          <img
-            src="/assets/logo.png"
-            alt="logo-image"
-            class="logo-image"
-          />
+          <span
+            class="material-symbols-outlined menu-icon"
+            style="user-select: none"
+          >
+            menu
+          </span>
+          <img src="/assets/logo.png" alt="logo-image" class="logo-image" />
           <div class="user-material-icons">
             <div class="shopping-cart-notification">
               <p class="cart-notification">2</p>
@@ -102,7 +98,6 @@
               type="text"
               placeholder="Digite aqui o que você procura"
               class="search-input"
-              id="search-message-input-mobile"
               autocomplete="off"
               oninput="deletedSearch()"
               onkeydown="onSearchInput(event)"
@@ -114,7 +109,7 @@
               search
             </span>
           </div>
-          <div id="search-text-message-mobile"></div>
+          <div class="search-text-message"></div>
         </div>
       </div>
       <nav class="navigation">
@@ -387,7 +382,11 @@
               alt="third-banner"
               class="third-banner-image"
             />
-            <img src="/assets/quarto banner.png" alt="fourth-banner" class="fourth-banner-image">
+            <img
+              src="/assets/quarto banner.png"
+              alt="fourth-banner"
+              class="fourth-banner-image"
+            />
           </div>
           <div class="third-banner-text-content">
             <p class="third-banner-text">
@@ -407,16 +406,16 @@
           </div>
           <div class="input-info-wrapper">
             <div class="input-boxes">
-                <input
-                  type="text"
-                  class="input-info-content-name"
-                  placeholder="Digite seu nome"
-                />
-                <input
-                  type="email"
-                  class="input-info-content-email"
-                  placeholder="Digite seu e-mail"
-                />
+              <input
+                type="text"
+                class="input-info-content-name"
+                placeholder="Digite seu nome"
+              />
+              <input
+                type="email"
+                class="input-info-content-email"
+                placeholder="Digite seu e-mail"
+              />
             </div>
             <div class="input-checkbox-content">
               <input type="checkbox" />

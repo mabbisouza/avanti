@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (allCategoriesList.classList.contains("active")) {
       allCategoriesList.classList.remove("active");
     }
-  }
+  } 
 
   function openMenu(key) {
     const element = document.getElementById("menu-container");
@@ -70,28 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  let searchMessage = isMobileDevice() ? "search-message-mobile" : "search-message";
-  let searchMessageInput = isMobileDevice()
-    ? "search-message-input-mobile"
-    : "search-message-input";
-  let searchMessageResult = isMobileDevice()
-    ? "search-text-message-mobile"
-    : "search-text-message";
-  
-  // Atualiza essas variáveis quando a tela mudar de tamanho
-  window.addEventListener("resize", () => {
-    searchMessage = isMobileDevice() ? "search-message-mobile" : "search-message";
-    searchMessageInput = isMobileDevice()
-      ? "search-message-input-mobile"
-      : "search-message-input";
-    searchMessageResult = isMobileDevice()
-      ? "search-text-message-mobile"
-      : "search-text-message";
-  });
-
   function deletedSearch() {
-    const messageTextContent = document.getElementById(searchMessageResult);
-    const message = document.getElementById(searchMessage);
+    const messageTextContent = document.getElementsByClassName(
+      "search-text-message"
+    )[isMobileDevice() ? 1 : 0];
+    const message = document.getElementById("search-message");
     if (message) {
       message.remove();
       messageTextContent.style.display = "none";
@@ -99,23 +82,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function onSearchInput(evt) {
-    const messageTextOld = document.getElementById(searchMessage);
-    const messageTextContent = document.getElementById(searchMessageResult);
+    const messageTextOld = document.getElementById("search-message");
+    const containerMessage = document.getElementsByClassName(
+      "search-text-message"
+    )
+    [isMobileDevice() ? 1 : 0];
 
     if (messageTextOld) {
       messageTextOld.remove();
-      messageTextContent.style.display = "none";
+      containerMessage.style.display = "none";
     }
 
-    const message = document.getElementById(searchMessageInput)?.value;
-    const messageSearch = document.createElement("p");
-    messageSearch.id = searchMessage;
-    messageSearch.classList.add("search-message-input");
-    messageSearch.innerHTML = `Você procurou por <strong> ${message} <strong>`;
+    const valueInput =
+      document.getElementsByClassName("search-input")[isMobileDevice() ? 1 : 0]
+        .value;
 
-    if (message?.length > 0 && (evt.type === "click" || evt.key === "Enter")) {
-      messageTextContent.appendChild(messageSearch);
-      messageTextContent.style.display = "flex";
+    const boxMessage = document.createElement("p");
+    boxMessage.id = "search-message";
+    boxMessage.classList.add("search-message-input");
+    boxMessage.innerHTML = `Você procurou por <strong> ${valueInput} <strong>`;
+
+    if (valueInput?.length > 0 && (evt.type === "click" || evt.key === "Enter")) {
+      containerMessage.appendChild(boxMessage);
+      containerMessage.style.display = "flex";
     }
   }
 

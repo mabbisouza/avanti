@@ -1,7 +1,6 @@
 function criarCard() {
   const slide = document.createElement("div");
   slide.classList.add("swiper-slide");
-
   slide.innerHTML = `
           <div class="card">
               <span class="card-new">Novo</span>
